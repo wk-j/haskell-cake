@@ -1,7 +1,5 @@
-module Lib
-    ( someFunc
-    ) where
-
+module Lib ( someFunc) where 
+    
 import Network.Curl.Download
 import System.Directory (doesFileExist)
 import System.Process (callCommand)
@@ -22,9 +20,7 @@ someFunc = do
     if not exist then do
         download "https://raw.githubusercontent.com/cake-build/resources/master/build.sh" "build.sh"
         callCommand "chmod u+x build.sh"
+        callCommand "touch build.cake"
     else
         putStrLn "-- build.sh already exist"
     -- let win = "http://cakebuild.net/download/bootstrapper/windows"
-
-
-
